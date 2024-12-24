@@ -1,0 +1,25 @@
+.page {
+  background: #fff;
+  width: 100%;
+  height: 50vh;
+
+  @media screen and (max-width: 360px) {
+    background-color: #111;
+    transition: background-color 0.2s ease;
+  }
+
+  @media screen and (min-width: 361px) and (max-width: 720px) {
+    transition: background-color 0.2s ease;
+    background-color: #333;
+  }
+
+  @media screen and (min-width: 721px) and (max-width: 1080px) {
+    transition: background-color 0.2s ease;
+    background-color: #777;
+  }
+
+  @media screen and (min-width: 1081px) and (max-width: 1440px) {
+    transition: background-color 0.2s ease;
+    background-color: #999;
+  }
+}
