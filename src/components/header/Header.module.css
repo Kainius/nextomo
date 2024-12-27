@@ -10,32 +10,28 @@
 .container {
   display: flex;
   width: 100%;
-  align-items: center;
+  margin-left: 80px;
+  margin-right: 80px;
   max-width: 1440px;
-  justify-content: center;
-  margin-left: 158px;
-  margin-right: 158px;
+  align-items: center;
+  justify-content: space-between;
 }
 .links {
-  position: absolute;
-
   display: flex;
   gap: 60px;
   align-self: center;
   font-size: 16px;
+  font-weight: 500;
 }
 .links a {
   text-decoration: none;
   color: #333333;
   cursor: pointer;
+  transition: color 0.3s;
 }
-
-.innerwrapper {
-  position: relative;
-  width: 100%;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  display: flex;
+.links a:hover {
+  color: #0089ff;
+  transition: color 0.3s;
 }
 
 .Headerlogo {
@@ -49,18 +45,47 @@
 }
 .menu {
   display: none;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 360px) {
+  .header .container {
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .header .container .links {
     display: none;
   }
-  .header .container .innerwrapper {
-    gap: 158px;
+  .header .container .menu {
+    display: flex;
+    align-items: center;
   }
-  .header .container .Headerlogo {
-    font-size: 0;
-    gap: 0;
+}
+
+@media screen and (min-width: 361px) and (max-width: 720px) {
+  .header .container {
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .header .container .links {
+    display: none;
+  }
+  .header .container .menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1080px) {
+  .header .container {
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .header .container .links {
+    display: none;
   }
   .header .container .menu {
     display: flex;

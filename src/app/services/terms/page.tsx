@@ -17,7 +17,7 @@ export default function Terms() {
       <h1>이용약관</h1>
 
       <section className={styles.section}>
-        <p className={styles.lastUpdate}>최종 수정일: 2024년 1월 1일</p>
+        <p className={styles.lastUpdate}>2024년 12월 27일</p>
         <p className={styles.intro}>
           본 약관은 나윱이라네(이하 "회사")가 제공하는 서비스의 이용조건 및
           절차, 회사와 회원 간의 권리, 의무 및 책임사항을 규정함을 목적으로

@@ -12,7 +12,7 @@ import Footer from "@/components/footer/Footer";
 // });
 
 export const metadata: Metadata = {
-  title: "Nextomo",
+  title: "NEXTOMO",
   description: "잡식님과 함께하는 행복한 Next.js",
   icons: {
     icon: [

@@ -16,6 +16,7 @@
   justify-content: center;
   margin-top: 16px;
   margin-bottom: 16px;
+  text-align: center;
 }
 .container .contents .links {
   display: flex;
