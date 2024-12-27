@@ -10,17 +10,27 @@ jobs:
     if: github.event.deployment_status.state == 'success' || github.event.deployment_status.state == 'failure'
 
     steps:
+      - name: 커밋 메시지 가져오기
+        id: get-commit-message
+        run: |
+          COMMIT_SHA="${{ github.event.deployment_status.sha }}"
+          COMMIT_MESSAGE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/commits/$COMMIT_SHA" | jq -r .commit.message)
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+
       - name: Discord로 알림 전송
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           STATUS="${{ github.event.deployment_status.state }}"
           ENVIRONMENT="${{ github.event.deployment.environment }}"
-          URL="${{ github.event.deployment_status.target_url }}"
-          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+          URL="https://nextomo.vercel.app/"
+          TIMESTAMP=$(TZ='Asia/Seoul' date +"%Y-%m-%d %H:%M:%S")
+          ACTOR="나윱"
           EMBED_COLOR=$([ "$STATUS" == "success" ] && echo "3066993" || echo "15158332")
           TITLE=$([ "$STATUS" == "success" ] && echo "✅ 배포 성공" || echo "❌ 배포 실패")
-          THUMBNAIL_URL="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-256x256.png"
+          THUMBNAIL_URL="https://assets.vercel.com/image/upload/front/vercel/twitter-card.png"
+          COMMIT_MESSAGE="${{ env.COMMIT_MESSAGE }}"
           curl -H "Content-Type: application/json" \
-               -d "{\"content\": \"$MESSAGE\", \"embeds\": [{\"title\": \"$TITLE\", \"description\": \"**환경**: $ENVIRONMENT\n**URL**: [여기를 클릭하세요]($URL)\n**배포자**: 나윱\n**배포 시간**: $TIMESTAMP\", \"color\": $EMBED_COLOR, \"thumbnail\": {\"url\": \"$THUMBNAIL_URL\"}}]}" \
+               -d "{\"content\": \"$MESSAGE\", \"embeds\": [{\"title\": \"$TITLE\", \"description\": \"**환경**: $ENVIRONMENT\n**URL**: [여기를 클릭하세요]($URL)\n**배포자**: $ACTOR\n**배포 시간**: $TIMESTAMP\n**커밋 메시지**: $COMMIT_MESSAGE\", \"color\": $EMBED_COLOR, \"thumbnail\": {\"url\": \"$THUMBNAIL_URL\"}}]}" \
                $DISCORD_WEBHOOK_URL
