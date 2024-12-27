@@ -13,12 +13,11 @@ jobs:
       - name: Discord로 알림 전송
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-         run: |
+        run: |
           STATUS="${{ github.event.deployment_status.state }}"
           ENVIRONMENT="${{ github.event.deployment.environment }}"
           URL="${{ github.event.deployment_status.target_url }}"
           TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-          ACTOR="${{ github.actor }}"
           EMBED_COLOR=$([ "$STATUS" == "success" ] && echo "3066993" || echo "15158332")
           TITLE=$([ "$STATUS" == "success" ] && echo "✅ 배포 성공" || echo "❌ 배포 실패")
           THUMBNAIL_URL="https://assets.vercel.com/image/upload/front/vercel/twitter-card.png"
