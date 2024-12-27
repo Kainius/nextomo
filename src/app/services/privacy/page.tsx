@@ -12,10 +12,7 @@ export default function Privacy() {
 
       <section className={styles.section}>
         <p className={styles.lastUpdate}>2024년 12월 25일</p>
-        <p className={styles.intro}>
-          넥스토모은 고객님들의 소중한 개인정보 보호를 위해 아래와 같은 방침을
-          수행하고 있습니다.
-        </p>
+        <p className={styles.intro}>여기에 무엇을 넣어야 전문적(?)일까요...</p>
       </section>
 
       <section className={styles.section}>

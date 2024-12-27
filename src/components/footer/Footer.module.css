@@ -33,7 +33,8 @@
 .contents .links a:focus {
   color: #4c4b4a;
   text-decoration: underline;
-  background-color: #cbbeea;
+  /* background-color: #cbbeea; */
+  background-color: rgba(0, 137, 255, 0.4);
   border-radius: 10px;
   padding: 12px;
   transition: background-color 0.2s ease;

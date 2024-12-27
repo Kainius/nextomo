@@ -1,10 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import SNB from "../snb/Snb";
 
 export default function Header() {
+  const [isSnbOpen, setIsSnbOpen] = useState(false);
+
+  const toggleSnb = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsSnbOpen(!isSnbOpen);
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -24,11 +33,12 @@ export default function Header() {
             />
             NEXTOMO
           </Link>
-          <div className={styles.menu}>
+          <div className={styles.menu} onClick={toggleSnb}>
             <Image src="/icons/menu.svg" alt="menu" width={32} height={30} />
           </div>
         </div>
       </div>
+      <SNB isOpen={isSnbOpen} toggleSnb={toggleSnb} />
     </div>
   );
 }
