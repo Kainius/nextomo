@@ -17,7 +17,6 @@ jobs:
           STATUS="${{ github.event.deployment_status.state }}"
           ENVIRONMENT="${{ github.event.deployment.environment }}"
           URL="${{ github.event.deployment_status.target_url }}"
-          MESSAGE="🚀 Deployment $STATUS 🚀"
           EMBED_COLOR=$([ "$STATUS" == "success" ] && echo "3066993" || echo "15158332")
           curl -H "Content-Type: application/json" \
                -d "{\"content\": \"$MESSAGE\", \"embeds\": [{\"title\": \"Deployment $STATUS\", \"description\": \"**Environment**: $ENVIRONMENT\n**URL**: [Click Here]($URL)\", \"color\": $EMBED_COLOR}]}" \
