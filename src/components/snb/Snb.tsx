@@ -25,7 +25,7 @@ export default function SNB({ isOpen, toggleSnb }: SnbProps) {
         <hr className={styles.hr} />
         <nav className={styles.nav}>
           <Link href="/about">About</Link>
-          <Link href="/servics">Services</Link>
+          <Link href="/services">Services</Link>
           <Link href="/contact">Contact</Link>
         </nav>
       </div>
