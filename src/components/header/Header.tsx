@@ -27,10 +27,9 @@ export default function Header() {
           NEXTOMO
         </Link>
         <div className={styles.links}>
-          <Link href="#1">이것은</Link>
-          <Link href="#2">반응형</Link>
-          <Link href="#3">링크</Link>
-          <Link href="#4">입니다</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/auth/login">Login</Link>
         </div>
         <div className={styles.menu} onClick={toggleSnb}>
           <Image src="/icons/menu.svg" alt="menu" width={32} height={30} />
