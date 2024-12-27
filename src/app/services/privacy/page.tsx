@@ -11,8 +11,11 @@ export default function Privacy() {
       <h1>개인정보처리방침</h1>
 
       <section className={styles.section}>
-        <p className={styles.lastUpdate}>2024년 12월 25일</p>
-        <p className={styles.intro}>여기에 무엇을 넣어야 전문적(?)일까요...</p>
+        <p className={styles.lastUpdate}>2024년 12월 27일</p>
+        <p className={styles.intro}>
+          나윱이라네(이하 '회사')는 회원의 개인정보를 중요시하며, 「개인정보
+          보호법」등 관련 법령을 준수하고 있습니다.
+        </p>
       </section>
 
       <section className={styles.section}>
@@ -84,12 +87,12 @@ export default function Privacy() {
         </p>
         <div className={styles.contactInfo}>
           <p>▶ 개인정보 보호책임자</p>
-          <p>이메일: skywhalestory@gmail.com</p>
+          <p>이메일: vanahyui@gmail.com</p>
         </div>
       </section>
 
       <footer className={styles.footer}>
-        <p>본 방침은 2024년 1월 1일부터 시행됩니다.</p>
+        <p>본 방침은 2024년 12월 27일부터 시행됩니다.</p>
       </footer>
     </div>
   );
