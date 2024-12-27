@@ -28,8 +28,8 @@ export default function Header() {
             <Image
               src="/favicon/favicon-256.ico"
               alt="logo"
-              width={50}
-              height={50}
+              width={32}
+              height={32}
             />
             NEXTOMO
           </Link>
