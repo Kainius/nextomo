@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Snb.module.css";
 
 interface SnbProps {
@@ -23,9 +24,9 @@ export default function SNB({ isOpen, toggleSnb }: SnbProps) {
         </div>
         <hr className={styles.hr} />
         <nav className={styles.nav}>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/contact">Contact</a>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
       </div>
     </>
